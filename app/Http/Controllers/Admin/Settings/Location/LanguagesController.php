@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Settings\Location;
 use App\Models\Languages;
 use App\Http\Requests\CreateLanguageRequest;
 use App\Http\Requests\UpdateLanguageRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 
@@ -15,20 +16,25 @@ class LanguagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $perPage = Input::get('perPage') ? Input::get('perPage') : 10;
         $search = Input::get('search') ? Input::get('search') : null;
-
+        $sort = Input::get('sort') ? Input::get('sort') : 'name';
+        $order = Input::get('order') ? Input::get('order') : 'ask';
         $q = Languages::query();
 
         if ($search) {
             $q->where('name', 'like', "%{$search}%");
         }
 
+        $q->orderBy($sort, $order);
+
         $languages = $q->paginate($perPage);
 
-        // dd($languages);
+        if ($request->ajax()){
+            return Response($languages);
+        }
         return view('admin.languages.index', compact('languages'));
     }
 

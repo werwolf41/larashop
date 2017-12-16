@@ -44,4 +44,12 @@
     {{ Html::script(mix('assets/admin/js/admin.js')) }}
     {{ Html::script(mix('assets/app/js/bootstrap-confirmation.min.js')) }}
     {{ Html::script(mix('assets/admin/js/dev.js')) }}
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
+    </script>
 @endsection
