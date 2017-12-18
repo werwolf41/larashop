@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Wildside\Userstamps\Userstamps;
 
-class Languages extends Model
+class Category extends Model
 {
     use Userstamps;
 
@@ -15,7 +15,7 @@ class Languages extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'code', 'active', 'primary'
+        'slug', 'parent', 'image', 'active'
     ];
 
     /**
@@ -23,6 +23,5 @@ class Languages extends Model
      */
     protected $casts = [
         'active' => 'bollean',
-        'primary' => 'bollean',
     ];
 }

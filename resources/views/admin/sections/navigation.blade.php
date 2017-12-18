@@ -39,6 +39,21 @@
                     <li>
                         <a>
                             <i class="fa fa-key" aria-hidden="true"></i>
+                            Catalog
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="{{ route('admin.category.index') }}">
+                                    Category
+                                    <span class="fa fa-chevron-down"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-key" aria-hidden="true"></i>
                             {{ __('views.backend.section.navigation.menu_settings') }}
                             <span class="fa fa-chevron-down"></span>
                         </a>

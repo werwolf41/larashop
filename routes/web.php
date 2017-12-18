@@ -66,13 +66,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
 
     Route::group(['prefix' =>'settings', 'namespace'=>'Settings'], function (){
-
         //Location
         Route::group(['prefix' =>'location', 'namespace'=>'Location'], function (){
-
             //Languages
             Route::resource('language', 'LanguagesController');
         });
+    });
+
+    Route::group(['prefix'=>'catalog', 'namespace'=>'Catalog'], function (){
+       //Category
+        Route::resource('category', 'CategoryController');
     });
 });
 
