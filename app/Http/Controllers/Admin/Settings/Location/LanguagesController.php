@@ -139,7 +139,9 @@ class LanguagesController extends Controller
         ];
         if ($id) {
             $where[] = [
-                'id', '!=', $id
+                'id',
+                '!=',
+                $id
             ];
         }
         if (Languages::select()->where($where)->count()) {
