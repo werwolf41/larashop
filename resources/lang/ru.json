@@ -193,5 +193,8 @@
   "search": "Поиск",
   "create": "Добавить",
   "sure": "Вы точно хотите это удалить",
-  "Cancel": "Отмена"
+  "Cancel": "Отмена",
+  "**************************** Admin Category **********************": "Admin category i18n",
+  "views.admin.category.index.title": "Категории",
+  "views.admin.category.index.table_header_name": "Название"
 }

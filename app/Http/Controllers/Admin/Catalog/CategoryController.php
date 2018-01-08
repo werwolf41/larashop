@@ -23,12 +23,15 @@ class CategoryController extends Controller
 
         if ($search) {
             $q->where('name', 'like', "%{$search}%");
+        }else{
+            $q->where('parent', '=', 0);
         }
+        $q->with('subCategory');
+        $q->with('titles');
+        $categories = $q->paginate($perPage);
 
-        $category = $q->paginate($perPage);
 
-        // dd($languages);
-        return view('admin.category.index', compact('category'));
+        return view('admin.category.index', compact('categories'));
     }
 
     /**

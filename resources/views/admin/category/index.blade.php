@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="" id="">
-                    <label for="perPage">{!! __('perPage', ['PERPAGE' => Form::select('perPage', ['10'=>10, '25'=>25, '50'=>50, '100'=>100], $category->perPage(), ['class'=>'form-control input-sm perpage', 'aria-controls'=>'datatable']) ]) !!}</label>
+                    <label for="perPage">{!! __('perPage', ['PERPAGE' => Form::select('perPage', ['10'=>10, '25'=>25, '50'=>50, '100'=>100], $categories->perPage(), ['class'=>'form-control input-sm perpage', 'aria-controls'=>'datatable']) ]) !!}</label>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -32,60 +32,60 @@
                 <thead>
                 <tr>
                     <th>@sortablelink('name', __('views.admin.category.index.table_header_name'),['page' =>
-                        $category->currentPage()])
+                        $categories->currentPage()])
                     </th>
                     <th>@sortablelink('code', __('views.admin.category.index.table_header_code'),['page' =>
-                        $category->currentPage()])
+                        $categories->currentPage()])
                     </th>
                     <th>@sortablelink('active', __('views.admin.category.index.table_header_active'),['page' =>
-                        $category->currentPage()])
+                        $categories->currentPage()])
                     </th>
                     <th>@sortablelink('primary', __('views.admin.category.index.table_header_primary'),['page' =>
-                        $category->currentPage()])
+                        $categories->currentPage()])
                     </th>
                     <th>@sortablelink('created_at', __('views.admin.category.index.table_header_created_at'),['page' =>
-                        $category->currentPage()])
+                        $categories->currentPage()])
                     </th>
                     <th>@sortablelink('updated_at', __('views.admin.category.index.table_header_updated_at'),['page' =>
-                        $category->currentPage()])
+                        $categories->currentPage()])
                     </th>
                     <th>{{ __('views.admin.category.index.table_header_actions') }}</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($category as $language)
-                    <tr role="row" id="tr_{{$language->id}}">
-                        <td>{{ $language->name }}</td>
-                        <td>{{ $language->code }}</td>
+                @foreach($categories as $category)
+                    <tr role="row" id="tr_{{$category->id}}">
+                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->code }}</td>
                         <td>
-                            @if($language->active)
+                            @if($category->active)
                                 <span class="label label-primary">{{ __('views.admin.category.index.table_header_active_on') }}</span>
                             @else
                                 <span class="label label-danger">{{ __('views.admin.category.index.table_header_active_off') }}</span>
                             @endif
                         </td>
                         <td>
-                            @if($language->primary)
+                            @if($category->primary)
                                 <span class="label label-success">{{ __('views.admin.category.index.table_header_primary') }}</span>
                             @endif</td>
-                        <td>{{ $language->created_at }}</td>
-                        <td>{{ $language->updated_at }}</td>
+                        <td>{{ $category->created_at }}</td>
+                        <td>{{ $category->updated_at }}</td>
                         <td class="action">
-                            <a class="btn btn-xs btn-primary" href="{{ route('admin.language.show', [$language->id]) }}"
+                            <a class="btn btn-xs btn-primary" href="{{ route('admin.language.show', [$category->id]) }}"
                                data-toggle="tooltip" data-placement="top"
                                data-title="{{ __('views.admin.category.index.show') }}">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a class="btn btn-xs btn-info" href="{{ route('admin.language.edit', [$language->id]) }}"
+                            <a class="btn btn-xs btn-info" href="{{ route('admin.language.edit', [$category->id]) }}"
                                data-toggle="tooltip" data-placement="top"
                                data-title="{{ __('views.admin.category.index.edit') }}">
                                 <i class="fa fa-pencil"></i>
                             </a>
 
-                            {{ Form::open(['route' =>['admin.language.destroy', 'id'=> $language->id], 'method'=>'DELETE']) }}
+                            {{ Form::open(['route' =>['admin.language.destroy', 'id'=> $category->id], 'method'=>'DELETE']) }}
                             <button
                                     class="btn btn-xs btn-danger user_destroy"
-                                    data-tr="tr_{{$language->id}}"
+                                    data-tr="tr_{{$category->id}}"
                                     data-toggle="confirmation"
                                     data-btn-ok-label="{{ __('views.admin.category.index.delete') }}"
                                     data-btn-ok-icon="fa fa-remove"
@@ -105,7 +105,7 @@
                 </tbody>
             </table>
             <div class="pull-right">
-                {{ $category->links() }}
+                {{ $categories->links() }}
             </div>
         </div>
     </div>
