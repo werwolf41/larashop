@@ -196,5 +196,9 @@
   "Cancel": "Отмена",
   "**************************** Admin Category **********************": "Admin category i18n",
   "views.admin.category.index.title": "Категории",
-  "views.admin.category.index.table_header_name": "Название"
+  "views.admin.category.index.table_header_name": "Название",
+  "views.admin.categories.create.title":"Новая категория",
+  "views.admin.category.index.table_header_parent": "Родительская категория",
+  "views.admin.category.index.table_header_slug": "Ссылка",
+  "views.admin.category.index.table_header_image": "Изображение"
 }

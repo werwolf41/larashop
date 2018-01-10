@@ -6,11 +6,11 @@
     <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
         <div class="row">
             <div class="col-sm-6">
-                <a href="{{ route('admin.language.create') }}"
+                <a href="{{ route('admin.category.create') }}"
                    class="btn btn-sm btn-success">{{ __('create') }}</a>
             </div>
         </div>
-        {{ Form::open(['route'=>'admin.language.index', 'method' => 'GET', 'class'=>'query']) }}
+        {{ Form::open(['route'=>'admin.category.index', 'method' => 'GET', 'class'=>'query']) }}
         <div class="row">
             <div class="col-sm-6">
                 <div class="" id="">
@@ -71,18 +71,18 @@
                         <td>{{ $category->created_at }}</td>
                         <td>{{ $category->updated_at }}</td>
                         <td class="action">
-                            <a class="btn btn-xs btn-primary" href="{{ route('admin.language.show', [$category->id]) }}"
+                            <a class="btn btn-xs btn-primary" href="{{ route('admin.category.show', [$category->id]) }}"
                                data-toggle="tooltip" data-placement="top"
                                data-title="{{ __('views.admin.category.index.show') }}">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a class="btn btn-xs btn-info" href="{{ route('admin.language.edit', [$category->id]) }}"
+                            <a class="btn btn-xs btn-info" href="{{ route('admin.category.edit', [$category->id]) }}"
                                data-toggle="tooltip" data-placement="top"
                                data-title="{{ __('views.admin.category.index.edit') }}">
                                 <i class="fa fa-pencil"></i>
                             </a>
 
-                            {{ Form::open(['route' =>['admin.language.destroy', 'id'=> $category->id], 'method'=>'DELETE']) }}
+                            {{ Form::open(['route' =>['admin.category.destroy', 'id'=> $category->id], 'method'=>'DELETE']) }}
                             <button
                                     class="btn btn-xs btn-danger user_destroy"
                                     data-tr="tr_{{$category->id}}"

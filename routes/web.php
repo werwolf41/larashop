@@ -76,6 +76,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::group(['prefix'=>'catalog', 'namespace'=>'Catalog'], function (){
        //Category
         Route::resource('category', 'CategoryController');
+        Route::post('category/upload', 'CategoryController@upload')->name('category.upload');
     });
 });
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('body_class','nav-md')
+@section('body_class','nav-md footer_fixed')
 
 @section('page')
     <div class="container body">

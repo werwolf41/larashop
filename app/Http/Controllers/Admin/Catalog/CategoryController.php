@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Catalog;
 
 use App\Models\Category;
+use App\Models\Languages;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -41,7 +42,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $languages = Languages::query()->where(['active'=>1])->get();
+        $categories = Category::query()->with('titles')->get();
+        return view('admin.category.create',  compact('languages', 'categories'));
     }
 
     /**
@@ -98,5 +101,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Upload image for category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function upload(Request $request){
+        return '323';
     }
 }
